@@ -1,8 +1,15 @@
 package com.console;
 
-public class Main {
+import com.console.states.EnumConsoleState;
+import com.console.states.StateMachine;
 
+public class Main {
+    public static StateMachine consoleState;
     public static void main(String[] args) {
-	// write your code here
+        consoleState =  EnumConsoleState.WELCOME.getMachineState();
+        Boolean exit = false;
+        while (!exit){
+            exit = consoleState.execute();
+        }
     }
 }

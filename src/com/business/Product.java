@@ -1,5 +1,8 @@
 package com.business;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Product {
     public String getTitle() {
         return title;
@@ -23,6 +26,19 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public void register() {
+        try (FileWriter file = new FileWriter("/src/data/products.txt")) {
+            file.write(sku + "," + title + "," + price);
+            System.out.println("Successfully Copied JSON product to File...");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private int toJSONString() {
+        return 0;
     }
 
     private String title;
