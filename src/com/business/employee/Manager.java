@@ -1,11 +1,9 @@
 package com.business.employee;
-import com.business.enums.Roles;
+import com.commons.enums.Role;
 
 public class Manager extends Employee {
-    public Manager(String name, String user, String pass) {
-        this.setRole(Roles.Manager);
-        this.setName(name);
-        this.setUser(user);
-        this.setPassword(pass);
+
+    public Manager(String user, String password, String name) {
+        super(user, password, name, Role.Manager);
     }
 }

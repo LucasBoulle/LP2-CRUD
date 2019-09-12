@@ -3,7 +3,7 @@ package com.business;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Product {
+public class Product extends RegistrableObject {
     public String getTitle() {
         return title;
     }
@@ -28,7 +28,7 @@ public class Product {
         this.price = price;
     }
 
-    public void register() {
+    public void register(RegistrableObject obj) {
         try (FileWriter file = new FileWriter("/src/data/products.txt")) {
             file.write(sku + "," + title + "," + price);
             System.out.println("Successfully Copied JSON product to File...");

@@ -1,15 +1,15 @@
-package com.business.enums;
+package com.commons.enums;
 
-public enum Roles {
+public enum Role {
     Salesman(new Actions[] {Actions.Order, Actions.Product}),
-    Manager(new Actions[] {Actions.Employee, Actions.Order, Actions.Product});
+    Manager(new Actions[] {Actions.Salesman, Actions.Order.Manager, Actions.Order, Actions.Product});
 
     public Actions[] getActions() {
         return actions;
     }
 
     private Actions[] actions;
-    Roles(Actions[] actions) {
+    Role(Actions[] actions) {
         this.actions = actions;
     }
 }

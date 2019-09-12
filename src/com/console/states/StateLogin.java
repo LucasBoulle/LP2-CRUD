@@ -1,9 +1,8 @@
 package com.console.states;
 
-import com.business.employee.Employee;
-import com.commons.EnumDataRepositoryPath;
+import com.commons.enums.EnumDataRepositoryPath;
 import com.console.Main;
-import com.dao.UserAccess;
+import com.dao.EmployeeRepository;
 
 import java.util.Scanner;
 
@@ -22,7 +21,7 @@ public class StateLogin extends StateMachine {
         System.out.println("Digite sua senha");
         String userPass = scan.nextLine();
 
-        UserAccess access = new UserAccess();
+        EmployeeRepository access = new EmployeeRepository();
         boolean loggedIn = access.login(userLogin, userPass, path);
         if (loggedIn)
             Main.consoleState = EnumConsoleState.MENU.getMachineState();

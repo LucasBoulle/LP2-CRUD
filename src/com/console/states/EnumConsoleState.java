@@ -5,7 +5,9 @@ public enum EnumConsoleState {
 
     LOGIN(new StateLogin()),
 
-    MENU (new StateMenu());
+    MENU (new StateMenu()),
+
+    EMPLOYEE (new StateEmployee());
 
     private final StateMachine machineState;
 

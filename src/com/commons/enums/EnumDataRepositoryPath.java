@@ -1,4 +1,6 @@
-package com.commons;
+package com.commons.enums;
+
+import java.io.File;
 
 public enum EnumDataRepositoryPath {
     Product("src/com/data/products.txt"),
@@ -12,6 +14,6 @@ public enum EnumDataRepositoryPath {
     }
 
     public String getPath() {
-        return path;
+        return new File(path).getAbsolutePath();
     }
 }

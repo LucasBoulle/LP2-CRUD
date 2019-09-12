@@ -1,13 +1,10 @@
 package com.business.employee;
 
-import com.business.enums.Roles;
+import com.commons.enums.Role;
 
 public class Salesman extends Employee {
-    public Salesman(String name, String user, String pass) {
-        this.setName(name);
-        this.setRole(Roles.Salesman);
-        this.setUser(user);
-        this.setPassword(pass);
-    }
 
+    public Salesman(String user, String password, String name) {
+        super(user, password, name, Role.Salesman);
+    }
 }
