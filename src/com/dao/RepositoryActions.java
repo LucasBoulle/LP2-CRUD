@@ -1,5 +1,8 @@
 package com.dao;
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RepositoryActions {
 
@@ -19,10 +22,9 @@ public class RepositoryActions {
     }
 
     public void writeFile(String filename, String text) throws IOException {
-        try(FileWriter fw = new FileWriter(filename, true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter out = new PrintWriter(bw))
-        {
+        try (FileWriter fw = new FileWriter(filename, true);
+             BufferedWriter bw = new BufferedWriter(fw);
+             PrintWriter out = new PrintWriter(bw)) {
             out.println("\r\n" + text);
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -32,7 +34,20 @@ public class RepositoryActions {
     public static void close(Closeable closeable) {
         try {
             closeable.close();
-        } catch(IOException ignored) {
+        } catch (IOException ignored) {
         }
+    }
+
+    public String[] readLines(String filename) throws IOException {
+        FileReader fileReader = new FileReader(filename);
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        List<String> lines = new ArrayList<>();
+        String line = null;
+        while ((line = bufferedReader.readLine()) != null) {
+            if(line != "")
+                lines.add(line);
+        }
+        bufferedReader.close();
+        return lines.toArray(new String[lines.size()]);
     }
 }

@@ -11,6 +11,9 @@ public class StateMenu extends StateMachine {
         Scanner scan = new Scanner(System.in);
         System.out.println("0 - Exit");
         System.out.println("1 - Employee");
+        System.out.println("2 - Product");
+        System.out.println("3 - Order");
+        System.out.println("4 - Customer");
         int option = scan.nextInt();
         switch (option)
         {
@@ -19,6 +22,15 @@ public class StateMenu extends StateMachine {
                 break;
             case 1:
                 Main.consoleState = EnumConsoleState.EMPLOYEE.getMachineState();
+                break;
+            case 2:
+                Main.consoleState = EnumConsoleState.PRODUCT.getMachineState();
+                break;
+            case 3:
+                Main.consoleState = EnumConsoleState.ORDER.getMachineState();
+                break;
+            case 4:
+                Main.consoleState = EnumConsoleState.CUSTOMER.getMachineState();
                 break;
         }
         return false;

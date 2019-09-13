@@ -7,7 +7,13 @@ public enum EnumConsoleState {
 
     MENU (new StateMenu()),
 
-    EMPLOYEE (new StateEmployee());
+    EMPLOYEE (new StateEmployee()),
+
+    PRODUCT (new StateProduct()),
+
+    ORDER (new StateOrder()),
+
+    CUSTOMER (new StateCustomer());
 
     private final StateMachine machineState;
 

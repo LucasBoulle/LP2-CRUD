@@ -4,5 +4,6 @@ public enum Actions {
     Product,
     Order,
     Salesman,
-    Manager;
+    Manager,
+    Customer;
 }

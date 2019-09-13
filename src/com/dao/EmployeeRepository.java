@@ -57,12 +57,12 @@ public class EmployeeRepository {
             if(user.contains(pass) && user.contains(login)) {
                 String[] userData = user.split("\\|");
                 if((Boolean.valueOf(userData[3]))) {
-                    loggedEmployee = new Manager(userData[2], userData[0], userData[1]);
+                    loggedEmployee = new Manager(userData[2], userData[1], userData[0]);
                 } else {
-                    loggedEmployee = new Salesman(userData[2], userData[0], userData[1]);
+                    loggedEmployee = new Salesman(userData[2], userData[1], userData[0]);
                 }
                 return true;
-        }
+            }
         }
         return false;
     }

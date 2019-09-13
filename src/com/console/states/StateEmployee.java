@@ -46,7 +46,7 @@ public class StateEmployee extends StateMachine {
             }
             loggedEmployee.registerObject(registeredEmployee);
             Main.consoleState = EnumConsoleState.MENU.getMachineState();
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | IOException e) {
             System.out.println(e.getMessage());
         }
         return exit;

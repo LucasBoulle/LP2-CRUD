@@ -1,5 +1,7 @@
 package com.business;
 
+import com.dao.ProductRepository;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -20,28 +22,31 @@ public class Product extends RegistrableObject {
         this.sku = sku;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
     public void setPrice(int price) {
         this.price = price;
     }
-
-    public void register(RegistrableObject obj) {
-        try (FileWriter file = new FileWriter("/src/data/products.txt")) {
-            file.write(sku + "," + title + "," + price);
-            System.out.println("Successfully Copied JSON product to File...");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @Override
+    public void register(RegistrableObject obj) throws IOException {
+        ProductRepository repository = new ProductRepository();
+        repository.registerProduct((Product) obj);
     }
 
-    private int toJSONString() {
-        return 0;
+    public Product(String sku, double price, String title) {
+        this.sku = sku;
+        this.title = title;
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return sku + "|" + price + "|" + title;
     }
 
     private String title;
     private String sku;
-    private int price;
+    private double price;
 }
