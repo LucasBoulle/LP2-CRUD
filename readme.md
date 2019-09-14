@@ -4,8 +4,8 @@ The project needs to be open by parent of src folder, called LP2-CRUD
 
 Default user
 ```
-   login: lboulle
-   password: 123
+login: lboulle
+password: 123
    ```
 Default customer
 ```
