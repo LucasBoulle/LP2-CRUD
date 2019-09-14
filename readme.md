@@ -1,4 +1,7 @@
 ## LP2 CRUD
+
+The project needs to be open by parent of src folder, called LP2-CRUD
+
 Default user
 ```
    login: lboulle
