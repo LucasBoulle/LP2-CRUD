@@ -7,13 +7,13 @@ Default user
    login: lboulle
    password: 123
    ```
-Customer default
+Default customer
 ```
 name: Maria
 cpf: 12312312312
 ```
 
-Skus default
+Default skus
 ```
 123123 - um produto
 321321 - outro produto
