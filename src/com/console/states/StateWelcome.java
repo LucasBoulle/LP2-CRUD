@@ -12,6 +12,7 @@ public class StateWelcome extends StateMachine {
         System.out.println("Enter your option!");
         System.out.println("0 - Exit");
         System.out.println("1 - Login");
+        System.out.println("2 - TACO");
         Scanner scan = new Scanner(System.in);
         int option = scan.nextInt();
         switch (option) {
@@ -20,6 +21,11 @@ public class StateWelcome extends StateMachine {
                 break;
             case 1:
                 Main.consoleState = EnumConsoleState.LOGIN.getMachineState();
+                break;
+            case 2:
+                System.out.println(" {\\__/}\n" +
+                        " (●_●)\n" +
+                        " ( >() Want a taco?");
                 break;
             default:
                 System.out.println("Choose a valid option");
