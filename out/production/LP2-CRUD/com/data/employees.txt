@@ -1,3 +1,2 @@
 lboulle|123|lucas|true
-
-maira|123|Maira Azevedo|false
+mazevedo|123|Maria Azevedo|false

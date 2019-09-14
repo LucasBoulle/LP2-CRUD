@@ -14,6 +14,9 @@ import java.util.Date;
 public class Employee extends RegistrableObject {
 
     public Employee(String user, String password, String name, Role role) {
+        if(user.isEmpty() || name.isEmpty() || password.isEmpty())
+            throw new IllegalArgumentException("Value cannot be empty.");
+
         this.user = user;
         this.password = password;
         this.name = name;
@@ -22,18 +25,6 @@ public class Employee extends RegistrableObject {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 
     @Override
@@ -45,9 +36,9 @@ public class Employee extends RegistrableObject {
     public void registerObject(RegistrableObject obj) throws IOException {
         String className = obj.getClass().getSimpleName();
         System.out.println(className);
-        boolean hasPermission = Arrays.stream(role.getActions()).anyMatch(Actions.valueOf(
+        boolean hasPermission = Arrays.asList(role.getActions()).contains(Actions.valueOf(
                 obj.getClass().getSimpleName()
-        )::equals);
+        ));
         if (hasPermission) {
             obj.register(obj);
             LogRepository.registerLog(obj.getClass().getSimpleName() + "|" + user + "|" + new Date());
@@ -57,7 +48,7 @@ public class Employee extends RegistrableObject {
     }
 
     private boolean isManager() {
-        return role == Role.Manager ? true : false;
+        return role == Role.Manager;
     }
 
     @Override

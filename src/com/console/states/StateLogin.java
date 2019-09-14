@@ -15,10 +15,10 @@ public class StateLogin extends StateMachine {
         Scanner scan = new Scanner(System.in);
         System.out.println("**** LOGIN ****");
 
-        System.out.println("Digite seu usuário");
+        System.out.println("Enter your user name");
         String userLogin = scan.nextLine();
 
-        System.out.println("Digite sua senha");
+        System.out.println("Enter you user password");
         String userPass = scan.nextLine();
 
         EmployeeRepository access = new EmployeeRepository();
@@ -26,7 +26,7 @@ public class StateLogin extends StateMachine {
         if (loggedIn)
             Main.consoleState = EnumConsoleState.MENU.getMachineState();
         else {
-            System.out.println("Dados inválidos!");
+            System.out.println("Credentials does not match!");
         }
         return exit;
     }

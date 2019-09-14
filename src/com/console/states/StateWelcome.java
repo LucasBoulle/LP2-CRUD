@@ -14,14 +14,15 @@ public class StateWelcome extends StateMachine {
         System.out.println("1 - Login");
         Scanner scan = new Scanner(System.in);
         int option = scan.nextInt();
-        switch (option)
-        {
+        switch (option) {
             case 0:
                 exit = true;
                 break;
             case 1:
                 Main.consoleState = EnumConsoleState.LOGIN.getMachineState();
                 break;
+            default:
+                System.out.println("Choose a valid option");
         }
         return exit;
     }

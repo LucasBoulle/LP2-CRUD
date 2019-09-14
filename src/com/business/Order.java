@@ -9,6 +9,8 @@ public class Order extends RegistrableObject {
     private String customerCpf;
 
     public Order(ArrayList<OrderItem> products, String customerCpf) {
+        if(products.isEmpty() || customerCpf.isEmpty())
+            throw new IllegalArgumentException("Value cannot be empty.");
         this.products = products;
         this.customerCpf = customerCpf;
     }
@@ -21,11 +23,11 @@ public class Order extends RegistrableObject {
 
     @Override
     public String toString() {
-        String initial = java.lang.System.identityHashCode(this) + "|" + customerCpf;
+        StringBuilder initial = new StringBuilder(System.identityHashCode(this) + "|" + customerCpf);
         for (OrderItem item : products) {
-            initial += "|" + item.toString();
+            initial.append("|").append(item.toString());
         }
-        return initial;
+        return initial.toString();
     }
 
 

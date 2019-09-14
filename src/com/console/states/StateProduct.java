@@ -29,14 +29,14 @@ public class StateProduct extends StateMachine {
             while (!skuIsUnique) {
                 System.out.println("Enter sku product");
                 sku = scan.nextLine();
-                if(!repository.skuIsAlreadyRegistered(sku))
+                if (!repository.skuIsAlreadyRegistered(sku))
                     skuIsUnique = true;
                 else
                     System.out.println("This sku code is already registered.");
             }
 
             System.out.println("Enter product price");
-            price = Double.valueOf(scan.nextLine()) * 100;
+            price = Double.parseDouble(scan.nextLine()) * 100;
 
             System.out.println("Enter product title");
             title = scan.nextLine();

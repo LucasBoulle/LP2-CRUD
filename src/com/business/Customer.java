@@ -11,6 +11,8 @@ public class Customer extends RegistrableObject {
     private String name;
 
     public Customer(String cpf, String name) {
+        if(cpf.isEmpty() || name.isEmpty())
+            throw new IllegalArgumentException("Value cannot be empty.");
         this.cpf = cpf;
         this.name = name;
     }

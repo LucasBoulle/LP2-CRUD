@@ -1,8 +1,19 @@
 ## LP2 CRUD
 Default user
 ```
-login: lboulle
-password: 123
+   login: lboulle
+   password: 123
+   ```
+Customer default
+```
+name: Maria
+cpf: 12312312312
+```
+
+Skus default
+```
+123123 - um produto
+321321 - outro produto
 ```
 
 Packages
